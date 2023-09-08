@@ -3,78 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Table Example</title>
+    <title>GitHub-Inspired Table</title>
     <style>
-        @font-face {
-            font-family: 'San Francisco';
-            src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff');
-            font-weight: normal;
-            font-style: normal;
-        }
-
         body {
-            font-family: 'San Francisco', Arial, sans-serif;
-            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            background-color: #f6f8fa;
             margin: 0;
             padding: 0;
         }
 
-        h1 {
-            text-align: center;
-            background-color: #000;
-            color: #fff;
-            padding: 20px 0;
-            margin: 0;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
-        table {
+        .markdown-table {
             width: 80%;
             margin: 20px auto;
             background-color: #fff;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #d1d5da;
             border-collapse: collapse;
         }
 
-        th, td {
-            padding: 15px;
-            text-align: center;
-            border: 1px solid #ddd;
+        .markdown-table th,
+        .markdown-table td {
+            padding: 12px 16px;
+            border: 1px solid #d1d5da;
+            text-align: left;
         }
 
-        th {
-            background-color: #f5f5f5;
+        .markdown-table th {
+            background-color: #f1f8ff;
+            font-weight: bold;
         }
 
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        tr:hover {
-            background-color: #e0e0e0;
+        .markdown-table tr:nth-child(even) {
+            background-color: #f6f8fa;
         }
     </style>
 </head>
 <body>
-    <h1>Table Example</h1>
-    <table>
+    <table class="markdown-table">
         <tr>
-            <th>Column 1</th>
-            <th>Column 2</th>
-            <th>Column 3</th>
+            <th>Header 1</th>
+            <th>Header 2</th>
+            <th>Header 3</th>
         </tr>
         <tr>
             <td>Row 1, Cell 1</td>
             <td>Row 1, Cell 2</td>
             <td>Row 1, Cell 3</td>
         </tr>
-        <!-- ... (repeated rows) ... -->
         <tr>
-            <td>Row 10, Cell 1</td>
-            <td>Row 10, Cell 2</td>
-            <td>Row 10, Cell 3</td>
+            <td>Row 2, Cell 1</td>
+            <td>Row 2, Cell 2</td>
+            <td>Row 2, Cell 3</td>
         </tr>
+        <!-- Add more rows as needed -->
     </table>
 </body>
 </html>
