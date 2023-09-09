@@ -810,45 +810,33 @@ svg {
     padding-bottom: 3rem;
     padding-top: 3rem;
   }
-  /* Sidebar styles */
-.sidebar {
+/* Style for the table */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
     background-color: var(--ui-color-background-secondary);
-    width: 250px;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow-y: auto;
-    padding-top: 1rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.sidebar-menu {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar-menu li {
-    margin-bottom: 1rem;
-}
-
-.sidebar-menu a {
-    display: block;
+.styled-table th,
+.styled-table td {
+    border: 1px solid var(--ui-color-n-300);
     padding: 1rem;
-    color: var(--ui-color-typography-body);
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+    text-align: left;
 }
 
-.sidebar-menu a:hover {
+.styled-table th {
     background-color: var(--ui-color-background-tertiary);
     color: var(--ui-color-typography-heading);
+    font-weight: 700;
 }
 
-/* Content styles */
-.content {
-    margin-left: 250px; /* Adjust this margin to match the sidebar width */
-    padding: 2rem;
+.styled-table tbody tr:nth-child(even) {
+    background-color: var(--ui-color-background-tertiary);
+}
+
+.styled-table tbody tr:nth-child(odd) {
+    background-color: var(--ui-color-background-secondary);
 }
 
 }
