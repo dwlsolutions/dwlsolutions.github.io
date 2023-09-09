@@ -814,6 +814,7 @@ svg {
 .styled-table {
     width: 100%;
     border-collapse: collapse;
+    border-radius: 25 px;
     margin-top: 2rem;
     background-color: var(--ui-color-background-secondary);
 }

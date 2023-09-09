@@ -30,35 +30,85 @@
   <body>
     <header role="banner" class="ui-section-header">
       <div class="ui-layout-container">
-        <div class="ui-section-header__layout ui-layout-flex">
-          <!-- LOGO -->
-          <a href="#" role="link" aria-label="#">
-            <svg viewBox="0 0 18 18" height="18" width="18" role="img" aria-label="#">
-              <path fill="#353535" d="M0 0h4.5v9a4.5 4.5 0 109 0V6H18v3A9 9 0 110 9V0zm18 4.5V0h-4.5v4.5H18z"/>
-            </svg>
-          </a>
-          <!-- MENU -->
-          <a href="#" role="link" aria-label="#" class="ui-component-button ui-component-button-small ui-component-button-primary">Add to Chrome</a>
+        <!-- COPYWRITING -->
+        <div class="ui-layout-column-6 ui-layout-column-center">
+          <h1>DWL Solutions</h1>
+          <p class="ui-text-intro"></p>
         </div>
       </div>
     </header>
     <div class="ui-layout-container">
-        <table class="styled-table">
-            <thead>
-                <tr>
-                    <th> Issue </th>
-                    <th>Resolution(s)</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                </tr>
-            </tbody>
-        </table>
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th> Issue </th>
+            <th>Resolution(s)</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PKIX path validation failed</td>
+            <td>Changing the response validator of HTTP Request to "Failure-status-code-validator" and setting the value to "0"</td>
+            <td>Found when backend is sending an empty response. If the response validator is set to "None", issue occurs. Error log: PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed. </td>
+          </tr>
+          <tr>
+            <td>failed: PKIX path building failed</td>
+            <td>Request configuration should be changed. We should enable insecure. Check TLS and others are in line or not.</td>
+            <td>failed: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target.</td>
+          </tr>
+          <tr>
+            <td>Swagger validation is not enforced in code</td>
+            <td>1. Changes in API kit router or REST Config to enforce validation. 2. In the swagger, we need to add produces/consumes code should be present. additionalProperties: False/True Parameters - required need to be defined </td>
+            <td>Request swagger validation does not fail even in case of wrong payload.</td>
+          </tr>
+          <tr>
+            <td>503 in Local</td>
+            <td>Give the client_id and client_secret in the API manager settings in studio and redeploy.Comment auto discovery id from code.</td>
+            <td>When the app is deployed without client_id and client_secret configured in the studio.</td>
+          </tr>
+          <tr>
+            <td>503 in server</td>
+            <td>Redeploy the code.</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>501Not Implemented - Local</td>
+            <td>Mule runtime issue. Use mule runtime for 4.3.0</td>
+            <td>When running an app locally and trying to hit from postman.</td>
+          </tr>
+          <tr>
+            <td>Error: connect ECONNREFUSED 127.0.0.1:8081</td>
+            <td>App not deployed. Deploy/Redeploy the app.</td>
+            <td>Error in postman while testing locally.</td>
+          </tr>
+          <tr>
+            <td>STUDIO doesn't recognize error </td>
+            <td>HTTP Request config -> Settings -> Response Validator to be set as NONE and run the code again.</td>
+            <td>Backend API gives error ( Error status and code) but the studio does not throw an error for this particular issue. This is because of the Response Validator setting in HTTP Request config. Then by default it throws an error. </td>
+          </tr>
+          <tr>
+            <td>org.mule.runtime.core.api.expression.ExpressionRuntimeException: "Unexpected character '\u001f' at payload@[1:1] (line:column</td>
+            <td>https://help.mulesoft.com/s/article/Unexpected-character-while-processing-gzip-payload Dmule.http.client.decompress=true </td>
+            <td>org.mule.runtime.core.api.expression.ExpressionRuntimeException: "Unexpected character '\u001f' at payload@[1:1] (line:column), expected false or true or null or {...} or [...] or number but was , while reading `payload` as Json.</td>
+          </tr>
+          <tr>
+            <td>Caught: BUG! exception in phase 'semantic analysis' in source unit 'C:\Users\shaikmub\AnypointStudio-7111\plugins\org.mule.tooling.server.4.3.0.ee_7.3.5.202203301339\mule\bin\additional.groovy' Unsupported class file major version 62</td>
+            <td>Change JAVA to an older working version and set the path properties to its bin.</td>
+            <td>Occurs due to JAVA update in the system. Maven will also fail saying JAVA_HOME is not set properly.</td>
+          </tr>
+          <tr>
+            <td> Caused by: org.mule.runtime.api.exception.MuleRuntimeException: org.mule.runtime.deployment.model.api.DeploymentInitException: BadPaddingException: Given final block not properly padded. Such issues can arise if a bad key is used during decryption. </td>
+            <td>1. Check the VM arguments. 2. Wrong decryption key is given 3. Mismatch of environment and decryption key. 4. Space in decryption key or in the argument somewhere. </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Next</td>
+            <td>Next</td>
+            <td>Next</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <main role="main">
       <section class="ui-section-hero">
@@ -70,7 +120,9 @@
             <!-- CTA -->
             <div class="ui-component-cta ui-layout-flex">
               <a href="#" role="link" aria-label="#" class="ui-component-button ui-component-button-normal ui-component-button-primary">Add to Chrome &mdash; It&rsquo;s Free</a>
-              <p class="ui-text-note"><small>Firefox and Safari soon.</small></p>
+              <p class="ui-text-note">
+                <small>Firefox and Safari soon.</small>
+              </p>
             </div>
           </div>
           <!-- IMAGE -->
@@ -147,32 +199,56 @@
             <div class="ui-layout-column-4">
               <img src="https://res.cloudinary.com/uisual/image/upload/assets/icons/avatar.svg" alt="#" class="ui-section-testimonial--avatar">
               <p class="ui-section-testimonial--quote ui-text-intro">&ldquo;Lorem ipsum dolor sit amet, consec adipiscing elit, sed do eiusmod tempor incididunt labore dolore magna.&rdquo;</p>
-              <p class="ui-section-testimonial--author"><strong>Jane Doe</strong><br><small class="ui-text-note">CEO of Company</small></p>
+              <p class="ui-section-testimonial--author">
+                <strong>Jane Doe</strong>
+                <br>
+                <small class="ui-text-note">CEO of Company</small>
+              </p>
             </div>
             <div class="ui-layout-column-4">
               <img src="https://res.cloudinary.com/uisual/image/upload/assets/icons/avatar.svg" alt="#" class="ui-section-testimonial--avatar">
               <p class="ui-section-testimonial--quote ui-text-intro">&ldquo;Lorem ipsum dolor sit amet, consec adipiscing elit, sed do eiusmod tempor incididunt labore dolore magna.&rdquo;</p>
-              <p class="ui-section-testimonial--author"><strong>Jane Doe</strong><br><small class="ui-text-note">CEO of Company</small></p>
+              <p class="ui-section-testimonial--author">
+                <strong>Jane Doe</strong>
+                <br>
+                <small class="ui-text-note">CEO of Company</small>
+              </p>
             </div>
             <div class="ui-layout-column-4">
               <img src="https://res.cloudinary.com/uisual/image/upload/assets/icons/avatar.svg" alt="#" class="ui-section-testimonial--avatar">
               <p class="ui-section-testimonial--quote ui-text-intro">&ldquo;Lorem ipsum dolor sit amet, consec adipiscing elit, sed do eiusmod tempor incididunt labore dolore magna.&rdquo;</p>
-              <p class="ui-section-testimonial--author"><strong>Jane Doe</strong><br><small class="ui-text-note">CEO of Company</small></p>
+              <p class="ui-section-testimonial--author">
+                <strong>Jane Doe</strong>
+                <br>
+                <small class="ui-text-note">CEO of Company</small>
+              </p>
             </div>
             <div class="ui-layout-column-4">
               <img src="https://res.cloudinary.com/uisual/image/upload/assets/icons/avatar.svg" alt="#" class="ui-section-testimonial--avatar">
               <p class="ui-section-testimonial--quote ui-text-intro">&ldquo;Lorem ipsum dolor sit amet, consec adipiscing elit, sed do eiusmod tempor incididunt labore dolore magna.&rdquo;</p>
-              <p class="ui-section-testimonial--author"><strong>Jane Doe</strong><br><small class="ui-text-note">CEO of Company</small></p>
+              <p class="ui-section-testimonial--author">
+                <strong>Jane Doe</strong>
+                <br>
+                <small class="ui-text-note">CEO of Company</small>
+              </p>
             </div>
             <div class="ui-layout-column-4">
               <img src="https://res.cloudinary.com/uisual/image/upload/assets/icons/avatar.svg" alt="#" class="ui-section-testimonial--avatar">
               <p class="ui-section-testimonial--quote ui-text-intro">&ldquo;Lorem ipsum dolor sit amet, consec adipiscing elit, sed do eiusmod tempor incididunt labore dolore magna.&rdquo;</p>
-              <p class="ui-section-testimonial--author"><strong>Jane Doe</strong><br><small class="ui-text-note">CEO of Company</small></p>
+              <p class="ui-section-testimonial--author">
+                <strong>Jane Doe</strong>
+                <br>
+                <small class="ui-text-note">CEO of Company</small>
+              </p>
             </div>
             <div class="ui-layout-column-4">
               <img src="https://res.cloudinary.com/uisual/image/upload/assets/icons/avatar.svg" alt="#" class="ui-section-testimonial--avatar">
               <p class="ui-section-testimonial--quote ui-text-intro">&ldquo;Lorem ipsum dolor sit amet, consec adipiscing elit, sed do eiusmod tempor incididunt labore dolore magna.&rdquo;</p>
-              <p class="ui-section-testimonial--author"><strong>Jane Doe</strong><br><small class="ui-text-note">CEO of Company</small></p>
+              <p class="ui-section-testimonial--author">
+                <strong>Jane Doe</strong>
+                <br>
+                <small class="ui-text-note">CEO of Company</small>
+              </p>
             </div>
           </div>
         </div>
@@ -185,7 +261,9 @@
             <!-- CTA -->
             <div class="ui-component-cta ui-layout-flex">
               <a href="#" role="link" aria-label="#" class="ui-component-button ui-component-button-normal ui-component-button-primary">Add to Chrome &mdash; It&rsquo;s Free</a>
-              <p class="ui-text-note"><small>Firefox and Safari soon.</small></p>
+              <p class="ui-text-note">
+                <small>Firefox and Safari soon.</small>
+              </p>
             </div>
           </div>
           <!-- IMAGE -->
@@ -197,30 +275,38 @@
       <div class="ui-layout-container">
         <div class="ui-section-footer__layout ui-layout-flex">
           <!-- COPYRIGHT -->
-          <p class="ui-section-footer--copyright ui-text-note"><small>&copy; 0000 Uisual</small></p>
-          <!-- MENU -->          
+          <p class="ui-section-footer--copyright ui-text-note">
+            <small>&copy; 0000 Uisual</small>
+          </p>
+          <!-- MENU -->
           <nav role="navigation" class="ui-section-footer--nav ui-section-footer--menu ui-layout-flex">
-            <a href="#" role="link" aria-label="#" class="ui-text-note"><small>Features</small></a>
-            <a href="#" role="link" aria-label="#" class="ui-text-note"><small>Help</small></a>
-            <a href="#" role="link" aria-label="#" class="ui-text-note"><small>Terms</small></a>
+            <a href="#" role="link" aria-label="#" class="ui-text-note">
+              <small>Features</small>
+            </a>
+            <a href="#" role="link" aria-label="#" class="ui-text-note">
+              <small>Help</small>
+            </a>
+            <a href="#" role="link" aria-label="#" class="ui-text-note">
+              <small>Terms</small>
+            </a>
           </nav>
           <!-- SOCIAL -->
           <nav role="navigation" class="ui-section-footer--nav ui-section-footer--social ui-layout-flex">
             <a href="#" role="link" aria-label="#">
               <svg viewBox="0 0 24 24" height="16" width="16" fill="none" stroke="#AEAEAE" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" role="img" aria-label="#">
-                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
               </svg>
             </a>
             <a href="#" role="link" aria-label="#">
               <svg viewBox="0 0 24 24" height="16" width="16" fill="none" stroke="#AEAEAE" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" role="img" aria-label="#">
-                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01"/>
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01" />
               </svg>
             </a>
             <a href="#" role="link" aria-label="#">
               <svg viewBox="0 0 24 24" height="16" width="16" fill="none" stroke="#AEAEAE" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" role="img" aria-label="#">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/>
+                <circle cx="12" cy="12" r="10" />
+                <path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32" />
               </svg>
             </a>
           </nav>
