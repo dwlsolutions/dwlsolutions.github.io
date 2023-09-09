@@ -25,6 +25,8 @@ TABLE OF CONTENT
 |  8.1 768PX
 |  8.2 1024PX
 |  8.3 1200PX
+9.0 SIDEBAR
+
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -808,5 +810,45 @@ svg {
     padding-bottom: 3rem;
     padding-top: 3rem;
   }
+  /* Sidebar styles */
+.sidebar {
+    background-color: var(--ui-color-background-secondary);
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    padding-top: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-menu li {
+    margin-bottom: 1rem;
+}
+
+.sidebar-menu a {
+    display: block;
+    padding: 1rem;
+    color: var(--ui-color-typography-body);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-menu a:hover {
+    background-color: var(--ui-color-background-tertiary);
+    color: var(--ui-color-typography-heading);
+}
+
+/* Content styles */
+.content {
+    margin-left: 250px; /* Adjust this margin to match the sidebar width */
+    padding: 2rem;
+}
 
 }
